@@ -40,7 +40,7 @@ export const RecipeProvider: React.FC<RecipeProviderProps> = ({ children }) => {
 
   const addItem = async (item: Item) => {
     setItems((prevItems) => [...prevItems, item]);
-    await fetch("http://localhost:3000/api/items/add", {
+    await fetch("https://assignment-rebel-minds.onrender.com/api/items/add", {
       method: "POST",
       body: JSON.stringify({
         item: item.name
@@ -71,7 +71,7 @@ export const RecipeProvider: React.FC<RecipeProviderProps> = ({ children }) => {
     try {
       await new Promise(resolve => setTimeout(resolve, 4000));
       const items = basket.map((item) => item.name);
-      const response = await fetch("http://localhost:3000/api/recipes/basket/generate-recipe", {
+      const response = await fetch("https://assignment-rebel-minds.onrender.com/api/recipes/basket/generate-recipe", {
         method: "POST",
         body: JSON.stringify({
           items: items
@@ -100,7 +100,7 @@ export const RecipeProvider: React.FC<RecipeProviderProps> = ({ children }) => {
   };
 
   const getRecipes = async () => {
-    const response = await fetch("http://localhost:3000/api/recipes/history", {
+    const response = await fetch("https://assignment-rebel-minds.onrender.com/api/recipes/history", {
       method: "GET"
     });
     const data = await response.json();
