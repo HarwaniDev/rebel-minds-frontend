@@ -19,7 +19,7 @@ export const RecipeProvider: React.FC<RecipeProviderProps> = ({ children }) => {
   );
 
   const fetchItems = async () => {
-    const response = await fetch("http://localhost:3000/api/items", {
+    const response = await fetch("https://assignment-rebel-minds.onrender.com/api/items", {
       method: "GET",
     });
     const data = await response.json()
